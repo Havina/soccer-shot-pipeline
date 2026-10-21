@@ -4,6 +4,8 @@ Frozen 18-stage soccer clip pipeline: detect and track players and the ball, rec
 
 Frozen V1/V2 source hashes are checked when the app starts.
 
+![App UI after analyzing a shot: 3.4% xG, Track 9 confirmed, near pitch end 20.66 m](docs/ui-city-shot.png)
+
 ## What is in this repo
 
 - `src/soccer_ml/` — frozen V1 clip pipeline and Semantic-v2 package
