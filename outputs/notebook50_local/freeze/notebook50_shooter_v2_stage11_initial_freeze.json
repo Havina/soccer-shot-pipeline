@@ -1,0 +1,112 @@
+{
+  "notebook": 50,
+  "cell": "25_FIX_4",
+  "status": "INITIAL_BASELINE_FROZEN",
+  "boundary": "SHOOTER_V2_STAGE11_AMBIGUITY_SAFE_ASSIGNMENT",
+  "stage": {
+    "index": 11,
+    "name": "shooter_assignment",
+    "action": "REPLACE_V2_AMBIGUITY_SAFE_SHOOTER_GATE"
+  },
+  "source": {
+    "path": "C:\\Users\\hecto\\OneDrive\\Desktop\\soccer-chance-analysis\\src\\soccer_ml\\v2\\shooter_stage11_assignment.py",
+    "sha256": "922540ae5e5f177d3e251012099f3ca1d9896e894a13ad48d52226d76f3d96fe"
+  },
+  "adversarial_history": {
+    "cell24_candidate_sha256": "42b3ff7a5cf240bd3df759dc541ae3851954bcc1b0906a375f3ac450236400d4",
+    "valid_production_repair": "Stage-11 prepopulation guard now checks semantic_v2_shooter_stage11.",
+    "rejected_noncanonical_repair": "Threshold-equality AUTO_SELECTION tolerance was tested and reverted because frozen semantic contracts require strictly above-threshold margin for AUTO_SELECTED.",
+    "final_threshold_semantics": {
+      "below": "AMBIGUOUS_TOP_TWO/UNRESOLVED",
+      "equal": "AMBIGUOUS_TOP_TWO/UNRESOLVED",
+      "above": "AUTO_SELECTED/AUTO_SELECTION"
+    }
+  },
+  "policy": {
+    "name": "SHOOTER_V2_TEMPORAL_LAUNCH_ORIGIN_CANDIDATE_V1",
+    "version": "1.0.0",
+    "semantic_sha256": "2a87111ea4a01c365067ddf94150169ddc284b762eb3e11c26218ac7b5cf46bc",
+    "required_margin_fraction": 0.1,
+    "weights": {
+      "contact": 0.55,
+      "departure": 0.25,
+      "monotonic": 0.15,
+      "support": 0.05
+    },
+    "tie_break_order": [
+      "final_score_desc",
+      "minimum_backprojected_distance_norm_asc",
+      "post_launch_distance_slope_desc",
+      "track_id_asc"
+    ],
+    "automatic_status": "AUTO_SELECTED",
+    "automatic_resolution": "AUTO_SELECTION",
+    "ambiguous_status": "AMBIGUOUS_TOP_TWO",
+    "ambiguous_resolution": "UNRESOLVED",
+    "confirmation_resolution": "USER_CONFIRMATION"
+  },
+  "cabo_regression": {
+    "candidate_count": 18,
+    "feature_table_exact": true,
+    "maximum_feature_delta": 2.2737367544323206e-13,
+    "top_track": 11,
+    "top_score": 0.985294117647059,
+    "second_track": 16,
+    "second_score": 0.9382352941176472,
+    "automatic_status": "AMBIGUOUS_TOP_TWO",
+    "automatic_resolution": "UNRESOLVED",
+    "automatic_margin_fraction": 0.047761194029850795,
+    "required_margin_fraction": 0.1,
+    "candidate_track_ids": [
+      11,
+      16
+    ],
+    "confirmed_track": 16,
+    "confirmation_source": "USER_CONFIRMATION",
+    "confirmation_used_as_model_evidence": false
+  },
+  "semantic_safety": {
+    "human_truth_used_for_automatic_scoring": false,
+    "human_truth_used_for_reranking": false,
+    "jersey_number_used": false,
+    "team_label_used": false,
+    "xg_used": false,
+    "expected_shot_distance_used": false,
+    "target_goal_used": false,
+    "reference_homography_used": false,
+    "geometry_expected_outcome_used": false,
+    "track_specific_prior_used": false,
+    "confirmation_used_as_model_evidence": false,
+    "automatic_scores_modified_by_confirmation": false,
+    "automatic_ranking_modified_by_confirmation": false
+  },
+  "execution_safety": {
+    "real_pipeline_executed": false,
+    "model_loading_performed": false,
+    "training_performed": false,
+    "gpu_inference_performed": false,
+    "network_call_performed": false,
+    "geometry_service_called": false,
+    "frozen_v1_shooter_handler_executed": false
+  },
+  "certification": {
+    "test_count": 151,
+    "tests_passed": 151,
+    "all_tests_passed": true,
+    "static_source_valid": true,
+    "source_unchanged": true,
+    "frozen_v1_exact": true,
+    "frozen_v2_exact": true,
+    "v2_file_set_exact": true
+  },
+  "implementation_status": {
+    "geometry_v2_stages_7_to_10_frozen": true,
+    "shooter_v2_stage11_implemented": true,
+    "shooter_v2_stage11_frozen": true,
+    "target_goal_v2_implemented": false,
+    "v2_pipeline_implemented": false,
+    "v2_public_api_implemented": false,
+    "v2_public_api_recertified": false
+  },
+  "rule": "This corrected Shooter-v2 Stage-11 production baseline is frozen. Any future change requires an explicit new version and full recertification."
+}

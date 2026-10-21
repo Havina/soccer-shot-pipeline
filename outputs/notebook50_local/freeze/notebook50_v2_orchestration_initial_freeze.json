@@ -1,0 +1,224 @@
+{
+  "notebook": 50,
+  "cell": 11,
+  "freeze_name": "NOTEBOOK50_V2_ORCHESTRATION_INITIAL_BASELINE_V1",
+  "status": "INITIAL_BASELINE_FROZEN",
+  "source": {
+    "path": "C:\\Users\\hecto\\OneDrive\\Desktop\\soccer-chance-analysis\\src\\soccer_ml\\v2\\orchestration_contracts.py",
+    "sha256": "966f27b1784ce366a3357c3dc5ba091c760fc31ac6b2cabeeeb17a644e58056a"
+  },
+  "frozen_dependencies": {
+    "geometry_client_freeze_sha256": "43fe635e35c2049ef3d77a31b48493e4c124131340b0bd50cc67b446670f05c4",
+    "semantic_contract_freeze_sha256": "4fd32779c11e38e6a3ef2cc13ced2a8b038571d875f3c8ac8f89899b386fa7d2",
+    "semantic_contracts_sha256": "58bcbe5d91a7b9a4ddfd65290673e0ebe53b20174f9c058a6d0c13b19510f322",
+    "geometry_client_files": {
+      "__init__.py": "e183bdad0ac692d637b0c18a028cecd99b291f3cffe818ce06e44813b28139f1",
+      "contracts.py": "9311b5f78b778792ab6e5321d5bb2562c7e8e25cb18f0ff523e225f2cbae998f",
+      "geometry_client.py": "d3d34dca650de08790308a110c8dd57dddc7543143ff420c232fb53bc5295e19"
+    }
+  },
+  "execution_policy": {
+    "policy": "STATELESS_REPLAY_WITH_OPTIONAL_CONFIRMATION",
+    "canonical_stage_count": 18,
+    "geometry_frame_policy": "GEOMETRY_FRAME_POLICY_V2_0",
+    "geometry_anchor_source": "FIRST_RAW_V3_BALL_FRAME",
+    "geometry_candidate_frame_count": 1,
+    "geometry_temporal_fallback_enabled": false,
+    "geometry_v1_fallback_enabled": false,
+    "target_goal_policy": "IMAGE_SPACE_SEMANTIC_MOTION_V2",
+    "target_goal_requires_airborne_ground_plane": false
+  },
+  "shooter_gate": {
+    "completed_prefix_count": 10,
+    "blocked_stage": "shooter_assignment",
+    "pre_resolution_stage_count": 11,
+    "resolved_shooter_required_stage_count": 7,
+    "forbidden_downstream_stages": [
+      "relative_team_assignment",
+      "target_goal_inference",
+      "shot_geometry",
+      "defender_context",
+      "enhanced_xg",
+      "annotation",
+      "output_validation"
+    ]
+  },
+  "stage_plan": [
+    {
+      "index": 1,
+      "name": "input_validation",
+      "action": "REUSE_V1_HANDLER",
+      "may_execute_before_shooter_resolution": true,
+      "requires_resolved_shooter": false,
+      "geometry_v2_stage": false
+    },
+    {
+      "index": 2,
+      "name": "artifact_validation",
+      "action": "WRAP_V1_PLUS_GEOMETRY_RUNTIME_READINESS",
+      "may_execute_before_shooter_resolution": true,
+      "requires_resolved_shooter": false,
+      "geometry_v2_stage": false
+    },
+    {
+      "index": 3,
+      "name": "video_metadata",
+      "action": "REUSE_V1_HANDLER",
+      "may_execute_before_shooter_resolution": true,
+      "requires_resolved_shooter": false,
+      "geometry_v2_stage": false
+    },
+    {
+      "index": 4,
+      "name": "ball_detection",
+      "action": "REUSE_V1_HANDLER",
+      "may_execute_before_shooter_resolution": true,
+      "requires_resolved_shooter": false,
+      "geometry_v2_stage": false
+    },
+    {
+      "index": 5,
+      "name": "ball_tracking",
+      "action": "REUSE_V1_HANDLER",
+      "may_execute_before_shooter_resolution": true,
+      "requires_resolved_shooter": false,
+      "geometry_v2_stage": false
+    },
+    {
+      "index": 6,
+      "name": "player_detection_tracking",
+      "action": "REUSE_V1_HANDLER",
+      "may_execute_before_shooter_resolution": true,
+      "requires_resolved_shooter": false,
+      "geometry_v2_stage": false
+    },
+    {
+      "index": 7,
+      "name": "pitch_line_detection",
+      "action": "REPLACE_V2_PNLCALIB_KEYPOINT_LINE_INFERENCE",
+      "may_execute_before_shooter_resolution": true,
+      "requires_resolved_shooter": false,
+      "geometry_v2_stage": true
+    },
+    {
+      "index": 8,
+      "name": "homography_search",
+      "action": "REPLACE_V2_PNLCALIB_BASE_PNL_SELECTION",
+      "may_execute_before_shooter_resolution": true,
+      "requires_resolved_shooter": false,
+      "geometry_v2_stage": true
+    },
+    {
+      "index": 9,
+      "name": "homography_validation",
+      "action": "REPLACE_V2_REFERENCE_FREE_GEOMETRY_VALIDATION",
+      "may_execute_before_shooter_resolution": true,
+      "requires_resolved_shooter": false,
+      "geometry_v2_stage": true
+    },
+    {
+      "index": 10,
+      "name": "pitch_projection",
+      "action": "REPLACE_V2_PLAYER_PROJECTION",
+      "may_execute_before_shooter_resolution": true,
+      "requires_resolved_shooter": false,
+      "geometry_v2_stage": true
+    },
+    {
+      "index": 11,
+      "name": "shooter_assignment",
+      "action": "REPLACE_V2_AMBIGUITY_SAFE_SHOOTER_GATE",
+      "may_execute_before_shooter_resolution": true,
+      "requires_resolved_shooter": false,
+      "geometry_v2_stage": false
+    },
+    {
+      "index": 12,
+      "name": "relative_team_assignment",
+      "action": "REUSE_AFTER_RESOLVED",
+      "may_execute_before_shooter_resolution": false,
+      "requires_resolved_shooter": true,
+      "geometry_v2_stage": false
+    },
+    {
+      "index": 13,
+      "name": "target_goal_inference",
+      "action": "REPLACE_V2_IMAGE_SPACE_TARGET_GOAL",
+      "may_execute_before_shooter_resolution": false,
+      "requires_resolved_shooter": true,
+      "geometry_v2_stage": false
+    },
+    {
+      "index": 14,
+      "name": "shot_geometry",
+      "action": "REUSE_AFTER_RESOLVED",
+      "may_execute_before_shooter_resolution": false,
+      "requires_resolved_shooter": true,
+      "geometry_v2_stage": false
+    },
+    {
+      "index": 15,
+      "name": "defender_context",
+      "action": "REUSE_AFTER_RESOLVED",
+      "may_execute_before_shooter_resolution": false,
+      "requires_resolved_shooter": true,
+      "geometry_v2_stage": false
+    },
+    {
+      "index": 16,
+      "name": "enhanced_xg",
+      "action": "REUSE_AFTER_RESOLVED",
+      "may_execute_before_shooter_resolution": false,
+      "requires_resolved_shooter": true,
+      "geometry_v2_stage": false
+    },
+    {
+      "index": 17,
+      "name": "annotation",
+      "action": "REUSE_AFTER_RESOLVED",
+      "may_execute_before_shooter_resolution": false,
+      "requires_resolved_shooter": true,
+      "geometry_v2_stage": false
+    },
+    {
+      "index": 18,
+      "name": "output_validation",
+      "action": "WRAP_V1_PLUS_AUTHORITATIVE_V2_PROVENANCE",
+      "may_execute_before_shooter_resolution": false,
+      "requires_resolved_shooter": true,
+      "geometry_v2_stage": false
+    }
+  ],
+  "certification": {
+    "test_count": 70,
+    "tests_passed": 70,
+    "all_tests_passed": true,
+    "network_calls_attempted": 0,
+    "stage_plan_fail_closed": true,
+    "execution_gate_fail_closed": true,
+    "geometry_policy_fail_closed": true,
+    "target_goal_policy_fail_closed": true,
+    "terminal_snapshot_fail_closed": true,
+    "semantic_state_derivation_valid": true
+  },
+  "implementation_status": {
+    "geometry_client_frozen": true,
+    "semantic_v2_contracts_frozen": true,
+    "orchestration_initial_baseline_frozen": true,
+    "stage_handlers_implemented": false,
+    "v2_pipeline_execution_implemented": false,
+    "v2_public_api_implemented": false,
+    "v2_public_api_recertified": false,
+    "fresh_full_v2_pipeline_certified": false
+  },
+  "safety": {
+    "network_call_performed": false,
+    "geometry_inference_performed": false,
+    "pipeline_execution_performed": false,
+    "stage_handler_execution_performed": false,
+    "dependency_install_performed": false,
+    "source_modified_during_cell11": false,
+    "training_performed": false
+  },
+  "next_step": "Cell 12 \u2014 recover exact reusable v1 handler interfaces needed by the v2 implementation without executing the pipeline."
+}

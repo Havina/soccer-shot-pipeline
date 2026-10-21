@@ -1,0 +1,81 @@
+{
+  "notebook": 50,
+  "cell": 9,
+  "freeze_name": "NOTEBOOK50_SEMANTIC_V2_CONTRACTS_INITIAL_BASELINE_V1",
+  "status": "INITIAL_BASELINE_FROZEN",
+  "source": {
+    "path": "C:\\Users\\hecto\\OneDrive\\Desktop\\soccer-chance-analysis\\src\\soccer_ml\\v2\\semantic_contracts.py",
+    "sha256": "58bcbe5d91a7b9a4ddfd65290673e0ebe53b20174f9c058a6d0c13b19510f322"
+  },
+  "frozen_client_dependency": {
+    "freeze_path": "C:\\Users\\hecto\\OneDrive\\Desktop\\soccer-chance-analysis\\outputs\\notebook50_local\\freeze\\notebook50_geometry_v2_client_initial_freeze.json",
+    "freeze_sha256": "43fe635e35c2049ef3d77a31b48493e4c124131340b0bd50cc67b446670f05c4",
+    "files": {
+      "__init__.py": "e183bdad0ac692d637b0c18a028cecd99b291f3cffe818ce06e44813b28139f1",
+      "contracts.py": "9311b5f78b778792ab6e5321d5bb2562c7e8e25cb18f0ff523e225f2cbae998f",
+      "geometry_client.py": "d3d34dca650de08790308a110c8dd57dddc7543143ff420c232fb53bc5295e19"
+    }
+  },
+  "contracts": {
+    "geometry_v2_result": true,
+    "shooter_v2_decision": true,
+    "semantic_v2_state": [
+      "COMPLETE",
+      "SHOOTER_CONFIRMATION_REQUIRED",
+      "FAILED"
+    ],
+    "semantic_v2_status": true,
+    "soccer_clip_analysis_v2_result": true,
+    "canonical_stage_count": 18,
+    "confirmation_completed_prefix": 10,
+    "confirmation_blocked_stage": "shooter_assignment",
+    "auto_shooter_required_margin_fraction": 0.1,
+    "manual_confirmation_as_model_evidence": false
+  },
+  "cabo_regression_semantics": {
+    "auto_status": "AMBIGUOUS_TOP_TWO",
+    "auto_top_track_id": 11,
+    "auto_second_track_id": 16,
+    "auto_top_score": 0.985294,
+    "auto_second_score": 0.938235,
+    "auto_margin_fraction": 0.04776119,
+    "required_margin_fraction": 0.1,
+    "automatic_resolution": "UNRESOLVED",
+    "user_confirmation_resolution": "USER_CONFIRMATION",
+    "confirmed_track_id": 16,
+    "auto_evidence_preserved": true,
+    "confirmation_used_as_model_evidence": false
+  },
+  "certification": {
+    "test_count": 69,
+    "tests_passed": 69,
+    "all_tests_passed": true,
+    "network_calls_attempted": 0,
+    "geometry_contract_fail_closed": true,
+    "shooter_contract_fail_closed": true,
+    "semantic_status_fail_closed": true,
+    "aggregate_cross_contract_fail_closed": true
+  },
+  "source_safety": {
+    "semantic_contract_source_unchanged": true,
+    "frozen_geometry_client_unchanged": true,
+    "frozen_v1_unchanged": true
+  },
+  "implementation_status": {
+    "geometry_client_initial_baseline_frozen": true,
+    "semantic_v2_contracts_initial_baseline_frozen": true,
+    "v2_pipeline_implemented": false,
+    "v2_public_api_implemented": false,
+    "v2_public_api_recertified": false,
+    "fresh_full_v2_pipeline_certified": false
+  },
+  "safety": {
+    "network_call_performed": false,
+    "geometry_inference_performed": false,
+    "pipeline_execution_performed": false,
+    "dependency_install_performed": false,
+    "source_modified_during_cell09": false,
+    "training_performed": false
+  },
+  "next_step": "Cell 10 \u2014 begin versioned semantic-v2 pipeline orchestration architecture without modifying frozen client or semantic-contract baselines."
+}

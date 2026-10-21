@@ -1,0 +1,65 @@
+# Environments
+.venv/
+.venv-geometry-v2/
+.venv*/
+env/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Local data, weights, and run artifacts (too large / not for a public repo)
+data/
+models/
+outputs/*
+!outputs/evaluation_corpus/
+outputs/evaluation_corpus/*
+!outputs/evaluation_corpus/catalog.json
+!outputs/notebook50_local/
+outputs/notebook50_local/*
+!outputs/notebook50_local/freeze/
+outputs/notebook50_local/freeze/*
+!outputs/notebook50_local/freeze/*.json
+!outputs/notebook50_local/freeze/*.txt
+app/uploads/*
+!app/uploads/.gitkeep
+app/results/*
+!app/results/.gitkeep
+
+# PnLCalib third-party tree and weights (keep only the local worker scripts)
+local_geometry_v2/PnLCalib/
+local_geometry_v2/**/*.pth
+local_geometry_v2/**/*.pt
+local_geometry_v2/**/*.onnx
+local_geometry_v2/**/*.mp4
+
+# Notebooks embed large outputs; keep them local
+notebooks/
+
+# Media and model binaries anywhere
+*.mp4
+*.mkv
+*.mov
+*.avi
+*.m4v
+*.pt
+*.pth
+*.onnx
+*.weights
+*.bin
+*.ckpt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,212 @@
+{
+  "canonical_pipeline": {
+    "actions": {
+      "annotation": "REUSE_AFTER_RESOLVED",
+      "artifact_validation": "WRAP_V1_PLUS_GEOMETRY_RUNTIME_READINESS",
+      "ball_detection": "REUSE_V1_HANDLER",
+      "ball_tracking": "REUSE_V1_HANDLER",
+      "defender_context": "REUSE_AFTER_RESOLVED",
+      "enhanced_xg": "REUSE_AFTER_RESOLVED",
+      "homography_search": "REPLACE_V2_PNLCALIB_BASE_PNL_SELECTION",
+      "homography_validation": "REPLACE_V2_REFERENCE_FREE_GEOMETRY_VALIDATION",
+      "input_validation": "REUSE_V1_HANDLER",
+      "output_validation": "WRAP_V1_PLUS_AUTHORITATIVE_V2_PROVENANCE",
+      "pitch_line_detection": "REPLACE_V2_PNLCALIB_KEYPOINT_LINE_INFERENCE",
+      "pitch_projection": "REPLACE_V2_PLAYER_PROJECTION",
+      "player_detection_tracking": "REUSE_V1_HANDLER",
+      "relative_team_assignment": "REUSE_AFTER_RESOLVED",
+      "shooter_assignment": "REPLACE_V2_AMBIGUITY_SAFE_SHOOTER_GATE",
+      "shot_geometry": "REUSE_AFTER_RESOLVED",
+      "target_goal_inference": "REPLACE_V2_IMAGE_SPACE_TARGET_GOAL",
+      "video_metadata": "REUSE_V1_HANDLER"
+    },
+    "annotation_output_path_aware": true,
+    "post_resolution_stages": [
+      "relative_team_assignment",
+      "target_goal_inference",
+      "shot_geometry",
+      "defender_context",
+      "enhanced_xg",
+      "annotation",
+      "output_validation"
+    ],
+    "pre_resolution_stages": [
+      "input_validation",
+      "artifact_validation",
+      "video_metadata",
+      "ball_detection",
+      "ball_tracking",
+      "player_detection_tracking",
+      "pitch_line_detection",
+      "homography_search",
+      "homography_validation",
+      "pitch_projection",
+      "shooter_assignment"
+    ],
+    "resolved_shooter_required_stages": [
+      "relative_team_assignment",
+      "target_goal_inference",
+      "shot_geometry",
+      "defender_context",
+      "enhanced_xg",
+      "annotation",
+      "output_validation"
+    ],
+    "route_identity": {
+      "annotation": {
+        "builder_name": "build_annotation_v2_reuse_handler",
+        "module_name": "soccer_ml.v2.terminal_stage_reuse",
+        "route_kind": "TERMINAL_ANNOTATION_REUSE"
+      },
+      "artifact_validation": {
+        "builder_name": "build_default_artifact_validation_handler",
+        "module_name": "soccer_ml.clip_pipeline",
+        "route_kind": "FROZEN_V1_WRAPPED_GEOMETRY_READINESS"
+      },
+      "ball_detection": {
+        "builder_name": "build_default_ball_detection_handler",
+        "module_name": "soccer_ml.clip_pipeline",
+        "route_kind": "FROZEN_V1_DIRECT"
+      },
+      "ball_tracking": {
+        "builder_name": "build_ball_tracking_handler",
+        "module_name": "soccer_ml.clip_pipeline",
+        "route_kind": "FROZEN_V1_DIRECT"
+      },
+      "defender_context": {
+        "builder_name": "build_defender_context_v2_reuse_handler",
+        "module_name": "soccer_ml.v2.resolved_downstream_reuse",
+        "route_kind": "RESOLVED_V1_REUSE"
+      },
+      "enhanced_xg": {
+        "builder_name": "build_enhanced_xg_v2_reuse_handler",
+        "module_name": "soccer_ml.v2.resolved_downstream_reuse",
+        "route_kind": "RESOLVED_V1_REUSE"
+      },
+      "homography_search": {
+        "builder_name": "build_geometry_v2_stage8_selection_handler",
+        "module_name": "soccer_ml.v2.geometry_stage8_selection",
+        "route_kind": "V2_REPLACEMENT"
+      },
+      "homography_validation": {
+        "builder_name": "build_geometry_v2_stage9_validation_handler",
+        "module_name": "soccer_ml.v2.geometry_stage9_validation",
+        "route_kind": "V2_REPLACEMENT"
+      },
+      "input_validation": {
+        "builder_name": "build_input_validation_handler",
+        "module_name": "soccer_ml.clip_pipeline",
+        "route_kind": "FROZEN_V1_DIRECT"
+      },
+      "output_validation": {
+        "builder_name": "build_output_validation_v2_wrapped_handler",
+        "module_name": "soccer_ml.v2.terminal_stage_reuse",
+        "route_kind": "TERMINAL_OUTPUT_VALIDATION_WRAPPED"
+      },
+      "pitch_line_detection": {
+        "builder_name": "build_geometry_v2_stage7_handler",
+        "module_name": "soccer_ml.v2.geometry_stage_handlers",
+        "route_kind": "V2_REPLACEMENT"
+      },
+      "pitch_projection": {
+        "builder_name": "build_geometry_v2_stage10_projection_handler",
+        "module_name": "soccer_ml.v2.geometry_stage10_projection",
+        "route_kind": "V2_REPLACEMENT"
+      },
+      "player_detection_tracking": {
+        "builder_name": "build_default_player_detection_tracking_handler",
+        "module_name": "soccer_ml.clip_pipeline",
+        "route_kind": "FROZEN_V1_DIRECT"
+      },
+      "relative_team_assignment": {
+        "builder_name": "build_relative_team_assignment_v2_reuse_handler",
+        "module_name": "soccer_ml.v2.resolved_downstream_reuse",
+        "route_kind": "RESOLVED_V1_REUSE"
+      },
+      "shooter_assignment": {
+        "builder_name": "build_shooter_v2_stage11_assignment_handler",
+        "module_name": "soccer_ml.v2.shooter_stage11_assignment",
+        "route_kind": "V2_REPLACEMENT"
+      },
+      "shot_geometry": {
+        "builder_name": "build_shot_geometry_v2_reuse_handler",
+        "module_name": "soccer_ml.v2.resolved_downstream_reuse",
+        "route_kind": "RESOLVED_V1_REUSE"
+      },
+      "target_goal_inference": {
+        "builder_name": "build_target_goal_v2_stage13_inference_handler",
+        "module_name": "soccer_ml.v2.target_goal_stage13_inference",
+        "route_kind": "V2_REPLACEMENT"
+      },
+      "video_metadata": {
+        "builder_name": "build_video_metadata_handler",
+        "module_name": "soccer_ml.clip_pipeline",
+        "route_kind": "FROZEN_V1_DIRECT"
+      }
+    },
+    "route_partition": {
+      "FROZEN_V1_DIRECT": 5,
+      "FROZEN_V1_WRAPPED_GEOMETRY_READINESS": 1,
+      "RESOLVED_V1_REUSE": 4,
+      "TERMINAL_ANNOTATION_REUSE": 1,
+      "TERMINAL_OUTPUT_VALIDATION_WRAPPED": 1,
+      "V2_REPLACEMENT": 6
+    },
+    "stage_count": 18,
+    "stage_names": [
+      "input_validation",
+      "artifact_validation",
+      "video_metadata",
+      "ball_detection",
+      "ball_tracking",
+      "player_detection_tracking",
+      "pitch_line_detection",
+      "homography_search",
+      "homography_validation",
+      "pitch_projection",
+      "shooter_assignment",
+      "relative_team_assignment",
+      "target_goal_inference",
+      "shot_geometry",
+      "defender_context",
+      "enhanced_xg",
+      "annotation",
+      "output_validation"
+    ]
+  },
+  "cell": 35,
+  "certification": {
+    "all_18_builder_factories_resolved": true,
+    "all_tests_passed": true,
+    "builder_invocation_performed": false,
+    "handler_invocation_performed": false,
+    "runtime_identity_restored": true,
+    "source_guards_exact": true,
+    "tests_passed": 110,
+    "tests_total": 110
+  },
+  "execution_safety": {
+    "annotation_rendered": false,
+    "builder_invoked": false,
+    "frozen_v2_modified": false,
+    "geometry_service_called": false,
+    "gpu_inference_performed": false,
+    "handler_invoked": false,
+    "model_loading_performed": false,
+    "network_call_performed": false,
+    "production_v1_modified": false,
+    "real_pipeline_executed": false,
+    "training_performed": false,
+    "xg_inference_performed": false
+  },
+  "next": "Cell 36 — implement the actual Semantic-v2 18-stage execution driver.",
+  "notebook": 50,
+  "source": {
+    "path": "src/soccer_ml/v2/semantic_v2_pipeline.py",
+    "sha256": "73f29f97e6d1dd2133a7c2d8e935961af385db13efaa3970ea9de91582994b9e"
+  },
+  "status": "FROZEN",
+  "upstream": {
+    "cell34_audit_sha256": "0d463f292bf020ed78e1124b130e44c8116ee34c72eeab5edec62b42c0371611"
+  }
+}

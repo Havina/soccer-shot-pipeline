@@ -1,0 +1,121 @@
+{
+  "notebook": 50,
+  "cell": 14,
+  "freeze_name": "NOTEBOOK50_FROZEN_V1_ADAPTER_INITIAL_BASELINE_V1",
+  "status": "INITIAL_BASELINE_FROZEN",
+  "source": {
+    "path": "C:\\Users\\hecto\\OneDrive\\Desktop\\soccer-chance-analysis\\src\\soccer_ml\\v2\\v1_adapter.py",
+    "sha256": "37b9a0dee6cd38642771eaf8f073bfa08ad4ec41bff3207bbf2e1ff960610ccc"
+  },
+  "runtime_identity": {
+    "frozen_v1_source_hashes": {
+      "api.py": "479fe7726c9049d9e126a780104aaa65fc67eb69a41d1ff4e19dbddf378a50db",
+      "clip_pipeline.py": "913dee8e35a0612d3d6b9ad5465689ac682d99f7d485710a0ce23bd69396f880",
+      "results.py": "883fae0407008e7de04189cc0332e8e836213fd2f87ac24a814db958e0466db5",
+      "shot_pipeline.py": "0d205673398baaa4c3c20c02e3dcbbe2fa4409f093f3a3723fd258f7278e75f5"
+    },
+    "runtime_builder_map": {
+      "input_validation": "build_input_validation_handler",
+      "artifact_validation": "build_default_artifact_validation_handler",
+      "video_metadata": "build_video_metadata_handler",
+      "ball_detection": "build_default_ball_detection_handler",
+      "ball_tracking": "build_ball_tracking_handler",
+      "player_detection_tracking": "build_default_player_detection_tracking_handler",
+      "pitch_line_detection": "build_pitch_line_detection_handler",
+      "homography_search": "build_homography_search_handler",
+      "homography_validation": "build_homography_validation_handler",
+      "pitch_projection": "build_pitch_projection_handler",
+      "shooter_assignment": "build_shooter_assignment_handler",
+      "relative_team_assignment": "build_relative_team_assignment_handler",
+      "target_goal_inference": "build_target_goal_inference_handler",
+      "shot_geometry": "build_shot_geometry_handler",
+      "defender_context": "build_defender_context_handler",
+      "enhanced_xg": "build_enhanced_xg_handler",
+      "annotation": "build_annotation_handler",
+      "output_validation": "build_output_validation_handler"
+    },
+    "runtime_builder_map_exact": true,
+    "real_source_identity_exact": true
+  },
+  "reuse_partition": {
+    "direct": [
+      "input_validation",
+      "video_metadata",
+      "ball_detection",
+      "ball_tracking",
+      "player_detection_tracking",
+      "relative_team_assignment",
+      "shot_geometry",
+      "defender_context",
+      "enhanced_xg",
+      "annotation"
+    ],
+    "wrapped": [
+      "artifact_validation",
+      "output_validation"
+    ],
+    "replacement": [
+      "pitch_line_detection",
+      "homography_search",
+      "homography_validation",
+      "pitch_projection",
+      "shooter_assignment",
+      "target_goal_inference"
+    ],
+    "direct_count": 10,
+    "wrapped_count": 2,
+    "replacement_count": 6
+  },
+  "adapter_policy": {
+    "canonical_resolver": "_notebook43_build_stage_handler",
+    "direct_historical_builder_calls": false,
+    "replacement_stage_v1_fallback": false,
+    "post_resolution_requires_resolved_shooter": true,
+    "annotation_output_path_stage_only": true,
+    "handler_return_must_be_none": true,
+    "handler_may_mutate_completed_stages": false,
+    "handler_may_mutate_failed_stage": false,
+    "adapter_marks_stage_complete": false
+  },
+  "certification": {
+    "test_count": 56,
+    "tests_passed": 56,
+    "all_tests_passed": true,
+    "real_v1_builder_executed": false,
+    "real_v1_handler_executed": false,
+    "real_pipeline_executed": false
+  },
+  "frozen_dependencies": {
+    "geometry_client_sha256": "d3d34dca650de08790308a110c8dd57dddc7543143ff420c232fb53bc5295e19",
+    "semantic_contracts_sha256": "58bcbe5d91a7b9a4ddfd65290673e0ebe53b20174f9c058a6d0c13b19510f322",
+    "orchestration_contracts_sha256": "966f27b1784ce366a3357c3dc5ba091c760fc31ac6b2cabeeeb17a644e58056a"
+  },
+  "source_safety": {
+    "frozen_v1_unchanged": true,
+    "frozen_v2_baselines_unchanged": true,
+    "adapter_unchanged_during_cell14": true
+  },
+  "implementation_status": {
+    "geometry_client_frozen": true,
+    "semantic_contracts_frozen": true,
+    "orchestration_frozen": true,
+    "frozen_v1_adapter_frozen": true,
+    "geometry_v2_stage_handlers_implemented": false,
+    "shooter_v2_stage_handler_implemented": false,
+    "target_goal_v2_stage_handler_implemented": false,
+    "v2_pipeline_execution_implemented": false,
+    "v2_public_api_implemented": false,
+    "v2_public_api_recertified": false,
+    "fresh_full_v2_pipeline_certified": false
+  },
+  "safety": {
+    "network_call_performed": false,
+    "geometry_inference_performed": false,
+    "model_loading_performed": false,
+    "pipeline_execution_performed": false,
+    "dependency_install_performed": false,
+    "frozen_source_modified": false,
+    "training_performed": false
+  },
+  "next_step": "Cell 15 \u2014 begin implementation of the first real semantic-v2 replacement handler boundary."
+}

@@ -1,0 +1,41 @@
+{
+  "purpose": "Local evaluation notes for app-layer overlays. Not a certification freeze and not an NVIDIA L40 claim.",
+  "overlays": {
+    "auto_trim": "Detects camera cuts and keeps the longest grass-visible segment before the frozen pipeline runs.",
+    "multiframe_geometry": "If the Stage-7 anchor frame has no valid PnLCalib pose, retry nearby frames and rebind the homography to the original frame_idx.",
+    "team_assignment_v3": "Runtime overlay on frozen V1 relative-team summary: ignore short-track colour ties and break remaining ties by nearest cluster mean.",
+    "goal_end_v3": "After Stage 13, if the chosen pitch end is >=45 m and the other end is <=35 m, flip to the near goal before shot geometry and xG."
+  },
+  "clips": [
+    {
+      "id": "caboverde",
+      "expected": "SHOOTER_CONFIRMATION_REQUIRED then COMPLETE on track 16",
+      "notes": "Certified local Cell-40 regression. Overlays should be no-ops if the clip has no cuts, the anchor calibrates, and jerseys are not tied."
+    },
+    {
+      "id": "argentina",
+      "expected_failure": "ball_rows",
+      "notes": "Fewer than four canonical ball rows. Auto-trim cannot invent ball detections."
+    },
+    {
+      "id": "barcagoal",
+      "expected_failure": "ball_rows",
+      "notes": "Same ball-tracking gate as argentina."
+    },
+    {
+      "id": "barcelonagoal",
+      "expected_without_overlay": "tied modal appearance cluster at Stage 12",
+      "expected_with_team_assignment_v3": "may COMPLETE if the only ties were short tracks or breakable by nearest centre",
+      "notes": "Striped Barcelona kit is the motivating case for the team overlay."
+    },
+    {
+      "id": "manc",
+      "expected_without_overlay": "NO_VALID_GEOMETRY, often because a celebration camera cut follows the shot",
+      "expected_with_auto_trim": "celebration cut removed; calibration may still fail at 480p",
+      "expected_with_multiframe_geometry": "nearby-frame retry if the anchor is blurred",
+      "expected_without_goal_end_v3": "target RIGHT, ~92 m, xG ~0.5% (far pitch end)",
+      "expected_with_goal_end_v3": "flip to LEFT, ~12.5 m, much higher xG",
+      "notes": "Liverpool vs Manchester City, 854x480, ~10.6s with a hard cut to celebration at ~5.2s. Frozen Stage 13 can pick the far pitch end."
+    }
+  ]
+}

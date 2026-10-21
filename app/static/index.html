@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Soccer ML — Shot Analysis</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="ball">⚽</span>
+      <div>
+        <h1>Soccer ML — Shot Analysis</h1>
+        <p class="sub">Upload a shot, confirm the shooter, get a reproducible xG breakdown</p>
+      </div>
+    </div>
+    <div id="health" class="health health-unknown" title="Backend health">
+      <span class="dot"></span><span id="health-text">checking…</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="column main-col">
+
+      <!-- Upload -->
+      <div class="card" id="upload-card">
+        <h2 data-icon="🎥">1 · Upload a clip</h2>
+        <div id="dropzone" class="dropzone">
+          <input id="file-input" type="file" accept=".mp4,.mkv,.mov,.avi,.m4v,video/*" hidden />
+          <p id="drop-text">Drag a video here or <button type="button" class="link" id="browse-btn">browse</button></p>
+          <p class="hint">Best: 720p+, landscape, 3–6 seconds, one camera shot of the penalty area. mp4 · mkv · mov · avi · m4v</p>
+        </div>
+        <div class="upload-row">
+          <span id="file-name" class="file-name">No file selected</span>
+          <button id="analyze-btn" class="primary" disabled>Analyze</button>
+        </div>
+        <div id="upload-progress" class="progress hidden"><div class="bar"></div><span class="label"></span></div>
+        <p id="upload-error" class="error hidden"></p>
+      </div>
+
+      <!-- Job status -->
+      <div class="card hidden" id="job-card">
+        <div class="card-head">
+          <h2 data-icon="🏃">2 · Analysis</h2>
+          <span id="job-state" class="pill">—</span>
+        </div>
+        <p class="meta"><span id="job-file"></span> · job <code id="job-id"></code></p>
+        <div class="stage-progress">
+          <div class="progress"><div id="stage-bar" class="bar"></div></div>
+          <span id="stage-text" class="label">0 / 18 stages</span>
+        </div>
+        <div id="preprocess-box" class="preprocess hidden"></div>
+        <p id="job-error" class="error hidden"></p>
+
+        <!-- Shooter confirmation -->
+        <div id="confirm-box" class="confirm hidden">
+          <div class="card-head">
+            <h3 id="confirm-title">Who took the shot?</h3>
+            <button id="confirm-close" class="ghost small hidden">Cancel</button>
+          </div>
+          <p id="confirm-text">The automatic ranking could not separate these players, so the pipeline stopped and is asking you. Look at the frame and pick the player who actually struck the ball.</p>
+          <div class="preview-wrap">
+            <img id="preview-img" class="preview hidden" alt="Shot moment with candidate players boxed" />
+            <p id="preview-missing" class="hint hidden">Preview frame unavailable for this job.</p>
+            <div class="preview-nav hidden" id="preview-nav">
+              <button class="ghost small" data-step="-10">« 10</button>
+              <button class="ghost small" data-step="-2">‹ 2</button>
+              <span id="preview-frame" class="label"></span>
+              <button class="ghost small" data-step="2">2 ›</button>
+              <button class="ghost small" data-step="10">10 »</button>
+            </div>
+          </div>
+          <div id="candidates" class="candidates"></div>
+          <p class="hint">The auto score is shown for transparency only — the pipeline asked precisely because it could not tell. Your choice is used as an external confirmation on a stateless replay and is never fed to the model as evidence.</p>
+        </div>
+
+        <!-- Team labels (display only) -->
+        <details class="context" id="context-box">
+          <summary>Team labels (optional, display only)</summary>
+          <p class="hint">The pipeline only knows the shooter's side ("attacking") and the other side ("defending"). Name them here so results read naturally. These labels are never used for inference.</p>
+          <form id="context-form" class="context-form">
+            <label>Attacking team <input name="attacking_team" maxlength="60" placeholder="e.g. Cabo Verde" /></label>
+            <label>Colour <input name="attacking_color" maxlength="20" placeholder="e.g. dark blue" /></label>
+            <label>Defending team <input name="defending_team" maxlength="60" placeholder="e.g. Argentina" /></label>
+            <label>Colour <input name="defending_color" maxlength="20" placeholder="e.g. white/blue" /></label>
+            <button type="submit" class="small">Save labels</button>
+            <span id="context-saved" class="hint hidden">Saved</span>
+          </form>
+        </details>
+      </div>
+
+      <!-- Results -->
+      <div class="card hidden" id="results-card">
+        <h2 data-icon="🥅">3 · Result</h2>
+        <div class="hero">
+          <div class="xg">
+            <span id="xg-value">—</span>
+            <span class="xg-label">expected goals (xG)</span>
+          </div>
+          <div class="metrics" id="metrics"></div>
+        </div>
+        <p id="geometry-warning" class="error hidden"></p>
+        <div class="video-wrap">
+          <video id="annotated-video" controls preload="metadata" class="hidden"></video>
+          <p id="video-missing" class="hint">Annotated video not available for this job.</p>
+        </div>
+        <div class="links">
+          <a id="download-link" class="button hidden" download>Download annotated video</a>
+          <a id="json-link" class="button ghost hidden" target="_blank" rel="noopener">Full result JSON</a>
+          <button id="change-shooter" class="ghost hidden">Wrong shooter? Change it</button>
+        </div>
+        <p id="confirmation-history" class="hint hidden"></p>
+        <details class="geometry">
+          <summary>Geometry &amp; provenance</summary>
+          <dl id="geometry"></dl>
+        </details>
+      </div>
+    </section>
+
+    <aside class="column side-col">
+      <div class="card">
+        <div class="card-head">
+          <h2 data-icon="📋">Match sheet</h2>
+          <span class="btn-row">
+            <button id="refresh-jobs" class="ghost small">Refresh</button>
+            <button id="clear-jobs" class="ghost small danger" title="Delete all finished jobs">Clear</button>
+          </span>
+        </div>
+        <ul id="job-list" class="job-list"><li class="hint">No jobs yet.</li></ul>
+      </div>
+      <div class="card about">
+        <h2 data-icon="📣">How it works</h2>
+        <ol>
+          <li>The app trims camera cuts, then the clip runs through the frozen 18‑stage pipeline.</li>
+          <li>If pitch calibration fails on the shot frame, a local overlay retries nearby frames (not Cell‑40 certified).</li>
+          <li>If the shooter is ambiguous, the pipeline stops at stage 11 and shows you the candidates on the shot frame.</li>
+          <li>Your pick triggers a stateless replay. A local overlay can break jersey‑colour ties so striped kits are less likely to fail team assignment.</li>
+          <li>If the calibrated pose swaps the two pitch ends, a local overlay flips to the near goal before distance, angle and xG are computed.</li>
+        </ol>
+        <p class="hint">Frozen sources are hash‑checked at startup. Local overlays never edit those files and are labelled on each job.</p>
+      </div>
+    </aside>
+  </main>
+  <p class="footer">⚽ Frozen 18‑stage Soccer ML pipeline · Semantic‑v2 · locally recertified on an RTX 2060 (not an NVIDIA L40 certification)</p>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

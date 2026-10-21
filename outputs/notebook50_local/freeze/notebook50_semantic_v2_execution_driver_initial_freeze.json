@@ -1,0 +1,112 @@
+{
+  "cell": "37_FIX_1",
+  "certification": {
+    "all_tests_passed": true,
+    "execution_source_unchanged": true,
+    "failed_tests": [],
+    "runtime_identities_restored": true,
+    "source_guards_exact": true,
+    "tests_passed": 118,
+    "tests_total": 118
+  },
+  "certified_boundaries": {
+    "automatic_complete": true,
+    "confirmed_complete": true,
+    "handler_completed_stage_mutation_blocked": true,
+    "handler_failed_stage_mutation_blocked": true,
+    "invalid_confirmation_ids_blocked": true,
+    "invalid_runtime_dependencies_blocked": true,
+    "invalid_stage18_prefix_blocked": true,
+    "mismatched_shooter_blocked": true,
+    "missing_shooter_decision_blocked": true,
+    "non_none_handler_return_blocked": true,
+    "noncallable_handler_blocked": true,
+    "shooter_confirmation_required": true,
+    "stage18_entry_prefix_17": true,
+    "stage18_failure_final_state_failed": true,
+    "stage18_failure_leaves_stage18_incomplete": true,
+    "stage18_sees_complete_before_failure": true,
+    "stage18_sees_count_18_before_failure": true,
+    "stage8_failure_propagation": true
+  },
+  "driver_contract": {
+    "canonical_stage_count": 18,
+    "canonical_stages": [
+      "input_validation",
+      "artifact_validation",
+      "video_metadata",
+      "ball_detection",
+      "ball_tracking",
+      "player_detection_tracking",
+      "pitch_line_detection",
+      "homography_search",
+      "homography_validation",
+      "pitch_projection",
+      "shooter_assignment",
+      "relative_team_assignment",
+      "target_goal_inference",
+      "shot_geometry",
+      "defender_context",
+      "enhanced_xg",
+      "annotation",
+      "output_validation"
+    ],
+    "complete_stage_count": 18,
+    "confirmation_blocked_stage": "shooter_assignment",
+    "confirmation_completed_stage_count": 10,
+    "execution_policy": "STATELESS_REPLAY_WITH_OPTIONAL_CONFIRMATION",
+    "semantic_status_fields": [
+      "state",
+      "completed_stage_count",
+      "blocked_stage",
+      "confirmation_required",
+      "failure_stage",
+      "failure_reason"
+    ],
+    "stage18_mark_complete_after_handler_success": true,
+    "stage18_pipeline_prefix_count": 17,
+    "stage18_semantic_completed_stage_count": 18,
+    "stage18_semantic_state": "COMPLETE"
+  },
+  "execution_safety": {
+    "annotation_rendered": false,
+    "execution_source_modified": false,
+    "geometry_service_called": false,
+    "gpu_inference_performed": false,
+    "model_loading_performed": false,
+    "network_call_performed": false,
+    "previously_frozen_v2_modified": false,
+    "production_v1_modified": false,
+    "real_builder_invoked": false,
+    "real_handler_invoked": false,
+    "real_pipeline_executed": false,
+    "real_video_opened": false,
+    "real_xg_inference_performed": false,
+    "synthetic_builder_invoked": true,
+    "synthetic_handler_invoked": true,
+    "training_performed": false
+  },
+  "next": "Cell 38 \u2014 implement the public Semantic-v2 API entry point.",
+  "notebook": 50,
+  "root_cause_correction": {
+    "correction": "Capture Stage-18 entry prefix and Semantic-v2 status before intentional failure injection.",
+    "defect": "Synthetic Stage-18 intentional failure was raised before Stage-18 entry state was captured.",
+    "driver_source_defect": false,
+    "execution_source_rewritten": false,
+    "original_cell37_passed": 112,
+    "original_cell37_total": 114,
+    "original_failed_tests": [
+      "stage18_handler_saw_complete_before_failure",
+      "stage18_handler_saw_count_18_before_failure"
+    ],
+    "test_harness_defect": true
+  },
+  "source": {
+    "path": "src/soccer_ml/v2/semantic_v2_execution.py",
+    "sha256": "48345ebc6e607c096b1002b578c9f61ac3ee25c532bdb8398d4956861e85f9fa"
+  },
+  "status": "FROZEN",
+  "upstream": {
+    "cell36_audit_sha256": "cf679e6bcfa775daef3f21bfe658d9e3f6c4008682810ed607f22d0e0f508a3c"
+  }
+}

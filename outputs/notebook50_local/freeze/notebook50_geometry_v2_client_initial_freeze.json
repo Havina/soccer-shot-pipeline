@@ -1,0 +1,76 @@
+{
+  "notebook": 50,
+  "cell": 7,
+  "freeze_name": "NOTEBOOK50_GEOMETRY_V2_CLIENT_INITIAL_BASELINE_V1",
+  "status": "INITIAL_BASELINE_FROZEN",
+  "scope": {
+    "namespace": "soccer_ml.v2",
+    "component": "GEOMETRY_V2_CLIENT_LAYER",
+    "files": {
+      "__init__.py": {
+        "path": "C:\\Users\\hecto\\OneDrive\\Desktop\\soccer-chance-analysis\\src\\soccer_ml\\v2\\__init__.py",
+        "sha256": "e183bdad0ac692d637b0c18a028cecd99b291f3cffe818ce06e44813b28139f1"
+      },
+      "contracts.py": {
+        "path": "C:\\Users\\hecto\\OneDrive\\Desktop\\soccer-chance-analysis\\src\\soccer_ml\\v2\\contracts.py",
+        "sha256": "9311b5f78b778792ab6e5321d5bb2562c7e8e25cb18f0ff523e225f2cbae998f"
+      },
+      "geometry_client.py": {
+        "path": "C:\\Users\\hecto\\OneDrive\\Desktop\\soccer-chance-analysis\\src\\soccer_ml\\v2\\geometry_client.py",
+        "sha256": "d3d34dca650de08790308a110c8dd57dddc7543143ff420c232fb53bc5295e19"
+      }
+    },
+    "frozen_v1_policy": "READ_ONLY_BYTE_EXACT"
+  },
+  "server_contract": {
+    "server_deployment_freeze_sha256": "e8e4cd7e421b9e4cfb68a73ff1708a3124d18c2173719e69abd276244366bc86",
+    "protocol_version": "soccer-ml-geometry-v2/1",
+    "geometry_frame_policy": "GEOMETRY_FRAME_POLICY_V2_0",
+    "policy_fingerprint": "62e0431373c6a665cbe07561c178cf750dd78ea610b11678644a28d7a0d342fd",
+    "runtime_fingerprint_sha256": "715f9b64b964b9a2b8d8011d231d132819ccff540563aa34e9284ae94c976d5e",
+    "required_weight_hashes": {
+      "SV_kp": "7ea78fa76aaf94976a8eca428d6e3c59697a93430cba1a4603e20284b61f5113",
+      "SV_lines": "d72f4ed71734a2e3df9fa084f666e9b8adaef21bf69bac8952d6d3f970ff7455"
+    },
+    "certified_gpu": "NVIDIA L40"
+  },
+  "certification": {
+    "adversarial_test_count": 44,
+    "adversarial_test_passed": 44,
+    "all_adversarial_tests_passed": true,
+    "network_calls_attempted": 0,
+    "request_fail_closed": true,
+    "readiness_fail_closed": true,
+    "inference_response_fail_closed": true,
+    "homography_validation_enforced": true,
+    "reference_free_success_enforced": true,
+    "runtime_identity_enforced": true,
+    "weight_identity_enforced": true,
+    "public_plain_http_rejected": true,
+    "loopback_private_http_allowed": true,
+    "public_https_allowed": true,
+    "automatic_retry": false,
+    "max_attempts": 1
+  },
+  "implementation_status": {
+    "geometry_client_implemented": true,
+    "geometry_client_initial_baseline_frozen": true,
+    "geometry_server_worker_certified": true,
+    "geometry_server_localhost_http_certified": true,
+    "production_network_endpoint_exposed": false,
+    "semantic_v2_result_contracts_implemented": false,
+    "v2_pipeline_implemented": false,
+    "v2_public_api_implemented": false,
+    "v2_public_api_recertified": false,
+    "fresh_full_v2_pipeline_certified": false
+  },
+  "safety": {
+    "network_call_performed": false,
+    "geometry_inference_performed": false,
+    "dependency_install_performed": false,
+    "source_modified_during_cell07": false,
+    "frozen_v1_modified": false,
+    "training_performed": false
+  },
+  "next_step": "Cell 8 \u2014 add semantic-v2 result/status contracts without implementing the full pipeline."
+}

@@ -1,0 +1,65 @@
+{
+  "cell": 39,
+  "certification": {
+    "all_tests_passed": true,
+    "failed_tests": [],
+    "public_api_source_unchanged": true,
+    "runtime_identities_restored": true,
+    "source_guards_exact": true,
+    "tests_passed": 64,
+    "tests_total": 64
+  },
+  "execution_safety": {
+    "annotation_rendered": false,
+    "geometry_service_called": false,
+    "gpu_inference_performed": false,
+    "model_loading_performed": false,
+    "network_call_performed": false,
+    "previously_frozen_v2_modified": false,
+    "production_v1_modified": false,
+    "public_api_source_modified": false,
+    "real_execution_driver_invoked": false,
+    "real_pipeline_executed": false,
+    "real_stage_builder_invoked": false,
+    "real_stage_handler_invoked": false,
+    "real_video_opened": false,
+    "real_xg_inference_performed": false,
+    "synthetic_execution_driver_invoked": true
+  },
+  "next": "Cell 40 \u2014 independent real Semantic-v2 end-to-end regression.",
+  "notebook": 50,
+  "public_contract": {
+    "direct_orchestration_mutation": false,
+    "direct_stage_builder_access": false,
+    "direct_stage_handler_access": false,
+    "duplicate_confirmation_validation": false,
+    "exact_argument_forwarding": true,
+    "exact_exception_object_propagation": true,
+    "exact_result_identity_passthrough": true,
+    "function": "analyze_soccer_clip",
+    "module": "soccer_ml.v2.api",
+    "one_driver_call": true,
+    "parameters": [
+      "video_path",
+      "annotated_output_path",
+      "geometry_inference_callable",
+      "frame_loader",
+      "png_encoder",
+      "video_sha256_provider",
+      "shooter_confirmation_track_id"
+    ],
+    "return_type": "SoccerClipAnalysisV2Result",
+    "runtime_dependencies_keyword_only": true,
+    "signature": "(video_path, annotated_output_path=None, *, geometry_inference_callable: 'Callable', frame_loader: 'Callable', png_encoder: 'Callable', video_sha256_provider: 'Optional[Callable]' = None, shooter_confirmation_track_id: 'Optional[int]' = None) -> 'SoccerClipAnalysisV2Result'",
+    "v1_public_api_fallback": false
+  },
+  "source": {
+    "path": "src/soccer_ml/v2/api.py",
+    "sha256": "f06e0d74d8c3126d98a960b4059dee9d7b6c7cf3913d3d88c18802795a69e123"
+  },
+  "status": "FROZEN",
+  "upstream": {
+    "cell38_audit_sha256": "f20ae57291d742d33cf3d90ade8d8c27d1d32dd81454be7920e6da04f31fc4ec",
+    "execution_driver_sha256": "48345ebc6e607c096b1002b578c9f61ac3ee25c532bdb8398d4956861e85f9fa"
+  }
+}

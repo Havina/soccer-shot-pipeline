@@ -1,0 +1,136 @@
+{
+  "notebook": 50,
+  "cell": "22_FIX_1",
+  "freeze_name": "NOTEBOOK50_GEOMETRY_V2_STAGE10_INITIAL_BASELINE_V1",
+  "status": "INITIAL_BASELINE_FROZEN",
+  "source": {
+    "path": "C:\\Users\\hecto\\OneDrive\\Desktop\\soccer-chance-analysis\\src\\soccer_ml\\v2\\geometry_stage10_projection.py",
+    "sha256": "409746fc0ee94c6b1e6ef3ebb21ed6aa633a80678afe76852c998493171ae49e"
+  },
+  "stage": {
+    "index": 10,
+    "name": "pitch_projection",
+    "action": "REPLACE_V2_PLAYER_PROJECTION",
+    "required_completed_prefix": [
+      "input_validation",
+      "artifact_validation",
+      "video_metadata",
+      "ball_detection",
+      "ball_tracking",
+      "player_detection_tracking",
+      "pitch_line_detection",
+      "homography_search",
+      "homography_validation"
+    ]
+  },
+  "projection_policy": {
+    "method": "GEOMETRY_V2_VALIDATED_FRAME_BOTTOM_CENTER_PROJECTION",
+    "homography_direction": "IMAGE_TO_PITCH",
+    "pitch_length_m": 105.0,
+    "pitch_width_m": 68.0,
+    "projection_denominator_epsilon": 1e-12,
+    "preferred_player_point": "FOOT_XY",
+    "compatibility_player_point": "BBOX_BOTTOM_CENTER",
+    "detection_id_sources": [
+      "detection_idx",
+      "detection_id"
+    ],
+    "inside_pitch_x_bounds": [
+      0.0,
+      105.0
+    ],
+    "inside_pitch_y_bounds": [
+      0.0,
+      68.0
+    ]
+  },
+  "semantic_safety": {
+    "stage9_validated_geometry_required": true,
+    "reference_free_required": true,
+    "reference_homography_used": false,
+    "historical_projected_coordinates_used": false,
+    "manual_projection_used": false,
+    "known_shooter_used": false,
+    "shooter_assignment_performed": false,
+    "relative_team_assignment_performed": false,
+    "variant_reselection_performed": false,
+    "temporal_fallback_performed": false,
+    "frozen_v1_projection_handler_used": false
+  },
+  "execution_policy": {
+    "additional_geometry_inference_calls": 0,
+    "geometry_service_call": false,
+    "network_call": false,
+    "geometry_object_replaced": false,
+    "marks_completed_stage": false,
+    "mutates_failed_stage": false
+  },
+  "public_contract": {
+    "result_type": "PitchProjectionResult",
+    "result_fields": [
+      "success",
+      "homography",
+      "projected_players",
+      "players_projected",
+      "players_inside_pitch",
+      "validation_status",
+      "failure_reason"
+    ],
+    "projected_player_fields": [
+      "frame_number",
+      "track_id",
+      "detection_id",
+      "confidence",
+      "bottom_center_x",
+      "bottom_center_y",
+      "pitch_x",
+      "pitch_y",
+      "inside_pitch"
+    ],
+    "validation_status": "VALID"
+  },
+  "certification": {
+    "test_count": 104,
+    "tests_passed": 104,
+    "all_tests_passed": true,
+    "static_purity_valid": true,
+    "public_contract_exact": true,
+    "orchestration_contract_exact": true,
+    "module_patch_restored": true,
+    "source_identity_exact": true
+  },
+  "frozen_dependencies": {
+    "geometry_client_sha256": "d3d34dca650de08790308a110c8dd57dddc7543143ff420c232fb53bc5295e19",
+    "semantic_contracts_sha256": "58bcbe5d91a7b9a4ddfd65290673e0ebe53b20174f9c058a6d0c13b19510f322",
+    "orchestration_contracts_sha256": "966f27b1784ce366a3357c3dc5ba091c760fc31ac6b2cabeeeb17a644e58056a",
+    "v1_adapter_sha256": "37b9a0dee6cd38642771eaf8f073bfa08ad4ec41bff3207bbf2e1ff960610ccc",
+    "geometry_stage7_sha256": "ea44ae6a5a04886938ec0dac6f66c5cf6afe90e1d1bb333854aaede724e13f1c",
+    "geometry_stage8_sha256": "83f2e9bfe3f8cb7d4767a3d46e456c772ac17a8a69228f3eb600f080310a621e",
+    "geometry_stage9_sha256": "a0d5bae8294782ae3bbbb17ce932ba85218e41702aa4dae976a20c867bc4f023"
+  },
+  "execution_safety": {
+    "real_geometry_service_called": false,
+    "network_call_performed": false,
+    "gpu_inference_performed": false,
+    "real_frozen_v1_builder_executed": false,
+    "real_frozen_v1_handler_executed": false,
+    "real_pipeline_executed": false,
+    "model_loading_performed": false,
+    "dependency_install_performed": false,
+    "training_performed": false
+  },
+  "implementation_status": {
+    "geometry_stage7_frozen": true,
+    "geometry_stage8_frozen": true,
+    "geometry_stage9_frozen": true,
+    "geometry_stage10_frozen": true,
+    "geometry_v2_stages_7_to_10_complete": true,
+    "shooter_v2_handler_implemented": false,
+    "target_goal_v2_handler_implemented": false,
+    "v2_pipeline_implemented": false,
+    "v2_public_api_implemented": false,
+    "v2_public_api_recertified": false,
+    "fresh_full_v2_pipeline_certified": false
+  },
+  "next_step": "Cell 23 \u2014 begin Shooter-v2 ambiguity-safe assignment boundary."
+}

@@ -1,0 +1,80 @@
+{
+  "notebook": 50,
+  "cell": 16,
+  "freeze_name": "NOTEBOOK50_GEOMETRY_V2_STAGE7_INITIAL_BASELINE_V1",
+  "status": "INITIAL_BASELINE_FROZEN",
+  "source": {
+    "path": "C:\\Users\\hecto\\OneDrive\\Desktop\\soccer-chance-analysis\\src\\soccer_ml\\v2\\geometry_stage_handlers.py",
+    "sha256": "ea44ae6a5a04886938ec0dac6f66c5cf6afe90e1d1bb333854aaede724e13f1c"
+  },
+  "stage": {
+    "index": 7,
+    "name": "pitch_line_detection",
+    "action": "REPLACE_V2_PNLCALIB_KEYPOINT_LINE_INFERENCE",
+    "required_completed_prefix": [
+      "input_validation",
+      "artifact_validation",
+      "video_metadata",
+      "ball_detection",
+      "ball_tracking",
+      "player_detection_tracking"
+    ]
+  },
+  "geometry_policy": {
+    "anchor": "FIRST_RAW_V3_BALL_FRAME",
+    "candidate_frame_count": 1,
+    "raw_trajectory_source": "RAW_V3",
+    "temporal_fallback": false,
+    "v1_geometry_fallback": false,
+    "ball_track_source": "BallTrackResult.track",
+    "ball_detection_fallback": false
+  },
+  "boundary_policy": {
+    "frame_loader_injected": true,
+    "png_encoder_injected": true,
+    "inference_callable_injected": true,
+    "direct_network_implementation": false,
+    "direct_opencv_dependency": false,
+    "direct_frozen_v1_geometry_execution": false,
+    "marks_completed_stage": false,
+    "mutates_failed_stage": false
+  },
+  "certification": {
+    "test_count": 78,
+    "tests_passed": 78,
+    "all_tests_passed": true,
+    "static_source_purity_valid": true,
+    "policy_constants_restored": true,
+    "source_identity_exact": true
+  },
+  "frozen_dependencies": {
+    "geometry_client_sha256": "d3d34dca650de08790308a110c8dd57dddc7543143ff420c232fb53bc5295e19",
+    "semantic_contracts_sha256": "58bcbe5d91a7b9a4ddfd65290673e0ebe53b20174f9c058a6d0c13b19510f322",
+    "orchestration_contracts_sha256": "966f27b1784ce366a3357c3dc5ba091c760fc31ac6b2cabeeeb17a644e58056a",
+    "v1_adapter_sha256": "37b9a0dee6cd38642771eaf8f073bfa08ad4ec41bff3207bbf2e1ff960610ccc"
+  },
+  "execution_safety": {
+    "real_geometry_service_called": false,
+    "network_call_performed": false,
+    "gpu_inference_performed": false,
+    "real_v1_builder_executed": false,
+    "real_v1_handler_executed": false,
+    "real_pipeline_executed": false,
+    "model_loading_performed": false,
+    "dependency_install_performed": false,
+    "training_performed": false
+  },
+  "implementation_status": {
+    "geometry_stage7_frozen": true,
+    "geometry_stage8_selection_implemented": false,
+    "geometry_stage9_validation_implemented": false,
+    "geometry_stage10_projection_implemented": false,
+    "shooter_v2_handler_implemented": false,
+    "target_goal_v2_handler_implemented": false,
+    "v2_pipeline_implemented": false,
+    "v2_public_api_implemented": false,
+    "v2_public_api_recertified": false,
+    "fresh_full_v2_pipeline_certified": false
+  },
+  "next_step": "Cell 17 \u2014 implement Geometry-v2 Stage-8 selection boundary by consuming Stage-7 evidence with zero additional inference."
+}

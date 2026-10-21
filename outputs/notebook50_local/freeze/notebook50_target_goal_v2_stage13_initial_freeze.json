@@ -1,0 +1,113 @@
+{
+  "notebook": 50,
+  "cell": "28_FIX_1",
+  "status": "INITIAL_BASELINE_FROZEN",
+  "boundary": "TARGET_GOAL_V2_STAGE13_IMAGE_SPACE_SEMANTIC_MOTION",
+  "stage": {
+    "index": 13,
+    "name": "target_goal_inference",
+    "action": "REPLACE_V2_IMAGE_SPACE_TARGET_GOAL"
+  },
+  "source": {
+    "path": "C:\\Users\\hecto\\OneDrive\\Desktop\\soccer-chance-analysis\\src\\soccer_ml\\v2\\target_goal_stage13_inference.py",
+    "sha256": "451cea1a1380352535a7b9f23feb413e4332096de99b56b80186b0e1b568b9bd",
+    "modified_by_fix1": false
+  },
+  "adversarial_repair": {
+    "production_defect": false,
+    "notebook_test_defect": true,
+    "failed_test": "static_airborne_ball_projection_forbidden",
+    "root_cause": "Brittle exact-whitespace source substring assertion.",
+    "replacement_check": "AST verifies exactly one 'airborne_ball_projected_through_homography' dict entry whose value is literal False.",
+    "runtime_metadata_test_already_passed": true
+  },
+  "policy": {
+    "name": "IMAGE_SPACE_SEMANTIC_MOTION_V2",
+    "pitch_length_m": 105.0,
+    "goal_center_y_m": 34.0,
+    "early_ball_rows": 4,
+    "motion_models": [
+      "EARLY_LINEAR",
+      "FULL_ENDPOINT"
+    ],
+    "origins": [
+      "SHOOTER_FOOT",
+      "FIRST_BALL"
+    ],
+    "comparison_count": 4,
+    "requires_unanimous_winner": true,
+    "requires_forward_backward_hemisphere_separation": true,
+    "airborne_ball_projected_through_ground_plane_homography": false,
+    "static_goal_centers_projected_pitch_to_image": true
+  },
+  "cabo_regression": {
+    "target_goal": "LEFT",
+    "confidence": 1.0,
+    "left_goal_image_xy": [
+      364.45087545934945,
+      337.14591419804833
+    ],
+    "right_goal_image_xy": [
+      6277.083907344718,
+      1151.6478318592526
+    ],
+    "early_ball_velocity_xy": [
+      1.026171875000036,
+      -13.609783935546888
+    ],
+    "full_endpoint_motion_xy": [
+      1.379150390625,
+      -98.92324829101562
+    ],
+    "comparison_winners": [
+      "LEFT",
+      "LEFT",
+      "LEFT",
+      "LEFT"
+    ],
+    "hemisphere_separated_all": true
+  },
+  "semantic_safety": {
+    "manual_target_goal_used": false,
+    "historical_target_goal_used": false,
+    "airborne_ball_ground_plane_projection": false,
+    "shooter_goal_distance_used_for_direction": false,
+    "shooter_pitch_xy_used_for_direction": false,
+    "relative_team_labels_used_for_direction": false,
+    "defender_positions_used_for_direction": false,
+    "shot_geometry_used_for_direction": false,
+    "xg_used_for_direction": false,
+    "reference_homography_used": false,
+    "geometry_variant_reselected": false
+  },
+  "execution_safety": {
+    "real_pipeline_executed": false,
+    "training_performed": false,
+    "gpu_inference_performed": false,
+    "network_call_performed": false,
+    "geometry_service_called": false,
+    "new_model_inference_performed": false,
+    "frozen_v1_target_goal_handler_executed": false
+  },
+  "certification": {
+    "test_count": 91,
+    "tests_passed": 91,
+    "all_tests_passed": true,
+    "static_source_valid": true,
+    "ast_airborne_ball_safety_valid": true,
+    "source_unchanged": true,
+    "frozen_v1_exact": true,
+    "frozen_v2_through_stage11_exact": true,
+    "v2_file_set_exact": true
+  },
+  "implementation_status": {
+    "geometry_v2_stages_7_to_10_frozen": true,
+    "shooter_v2_stage11_frozen": true,
+    "target_goal_v2_stage13_implemented": true,
+    "target_goal_v2_stage13_frozen": true,
+    "v2_pipeline_implemented": false,
+    "v2_public_api_implemented": false,
+    "v2_public_api_recertified": false
+  },
+  "rule": "This TargetGoal-v2 Stage-13 production baseline is frozen. Any future production source change requires an explicit new version and full recertification."
+}

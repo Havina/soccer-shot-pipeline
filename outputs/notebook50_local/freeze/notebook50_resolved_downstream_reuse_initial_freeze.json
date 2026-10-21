@@ -1,0 +1,557 @@
+{
+  "cell": 31,
+  "certification": {
+    "all_tests_passed": true,
+    "orchestration_exact": true,
+    "passed_count": 118,
+    "runtime_identity_restored": true,
+    "source_guards_exact": true,
+    "static_purity": true,
+    "test_count": 118
+  },
+  "execution_safety": {
+    "defender_context_executed": false,
+    "frozen_v2_upstream_modified": false,
+    "geometry_service_called": false,
+    "model_loading_performed": false,
+    "network_call_performed": false,
+    "production_v1_modified": false,
+    "real_frozen_v1_builder_executed": false,
+    "real_frozen_v1_handler_executed": false,
+    "real_pipeline_executed": false,
+    "real_production_resolver_executed": false,
+    "relative_team_assignment_executed": false,
+    "shot_geometry_executed": false,
+    "training_performed": false,
+    "xg_predict_proba_executed": false
+  },
+  "freeze_name": "RESOLVED_DOWNSTREAM_REUSE_INITIAL_FREEZE",
+  "frozen_source_hashes": {
+    "production_v1": {
+      "src\\soccer_ml\\api.py": "479fe7726c9049d9e126a780104aaa65fc67eb69a41d1ff4e19dbddf378a50db",
+      "src\\soccer_ml\\clip_pipeline.py": "913dee8e35a0612d3d6b9ad5465689ac682d99f7d485710a0ce23bd69396f880",
+      "src\\soccer_ml\\results.py": "883fae0407008e7de04189cc0332e8e836213fd2f87ac24a814db958e0466db5",
+      "src\\soccer_ml\\shot_pipeline.py": "0d205673398baaa4c3c20c02e3dcbbe2fa4409f093f3a3723fd258f7278e75f5"
+    },
+    "v2": {
+      "__init__.py": "e183bdad0ac692d637b0c18a028cecd99b291f3cffe818ce06e44813b28139f1",
+      "contracts.py": "9311b5f78b778792ab6e5321d5bb2562c7e8e25cb18f0ff523e225f2cbae998f",
+      "geometry_client.py": "d3d34dca650de08790308a110c8dd57dddc7543143ff420c232fb53bc5295e19",
+      "geometry_stage10_projection.py": "409746fc0ee94c6b1e6ef3ebb21ed6aa633a80678afe76852c998493171ae49e",
+      "geometry_stage8_selection.py": "83f2e9bfe3f8cb7d4767a3d46e456c772ac17a8a69228f3eb600f080310a621e",
+      "geometry_stage9_validation.py": "a0d5bae8294782ae3bbbb17ce932ba85218e41702aa4dae976a20c867bc4f023",
+      "geometry_stage_handlers.py": "ea44ae6a5a04886938ec0dac6f66c5cf6afe90e1d1bb333854aaede724e13f1c",
+      "orchestration_contracts.py": "966f27b1784ce366a3357c3dc5ba091c760fc31ac6b2cabeeeb17a644e58056a",
+      "resolved_downstream_reuse.py": "9aeffc3d1a02a0eccc59ceea32efd42ed964a1df7e49d123521ef93dcfad3719",
+      "semantic_contracts.py": "58bcbe5d91a7b9a4ddfd65290673e0ebe53b20174f9c058a6d0c13b19510f322",
+      "shooter_stage11_assignment.py": "922540ae5e5f177d3e251012099f3ca1d9896e894a13ad48d52226d76f3d96fe",
+      "target_goal_stage13_inference.py": "451cea1a1380352535a7b9f23feb413e4332096de99b56b80186b0e1b568b9bd",
+      "v1_adapter.py": "37b9a0dee6cd38642771eaf8f073bfa08ad4ec41bff3207bbf2e1ff960610ccc"
+    }
+  },
+  "next_step": "Cell 32 \u2014 implement Stage-17 annotation reuse + Stage-18 wrapped output-validation boundary.",
+  "notebook": 50,
+  "reuse_contract": {
+    "action": "REUSE_AFTER_RESOLVED",
+    "adapter_executor": "_execute_handler_without_orchestration_mutation",
+    "builders": {
+      "defender_context": "build_defender_context_handler",
+      "enhanced_xg": "build_enhanced_xg_handler",
+      "relative_team_assignment": "build_relative_team_assignment_handler",
+      "shot_geometry": "build_shot_geometry_handler"
+    },
+    "deferred_handler_resolution": true,
+    "executor_contract": "(*, result, stage, handler)",
+    "production_resolver": "_notebook43_build_stage_handler",
+    "stages": [
+      "relative_team_assignment",
+      "shot_geometry",
+      "defender_context",
+      "enhanced_xg"
+    ]
+  },
+  "source": {
+    "path": "C:\\Users\\hecto\\OneDrive\\Desktop\\soccer-chance-analysis\\src\\soccer_ml\\v2\\resolved_downstream_reuse.py",
+    "sha256": "9aeffc3d1a02a0eccc59ceea32efd42ed964a1df7e49d123521ef93dcfad3719"
+  },
+  "status": "FROZEN",
+  "tests": {
+    "adapter_builder_map_identity_restored": {
+      "detail": "",
+      "passed": true
+    },
+    "builder_callable_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "builder_callable_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "builder_callable_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "builder_callable_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "builder_zero_arg_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "builder_zero_arg_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "builder_zero_arg_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "builder_zero_arg_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "contract_error_subclass_exact": {
+      "detail": "",
+      "passed": true
+    },
+    "deferred_resolver_output_path_none_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "deferred_resolver_output_path_none_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "deferred_resolver_output_path_none_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "deferred_resolver_output_path_none_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "deferred_resolver_stage_exact_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "deferred_resolver_stage_exact_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "deferred_resolver_stage_exact_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "deferred_resolver_stage_exact_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_handler_callable_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_handler_callable_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_handler_callable_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_handler_callable_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_handler_captures_stage_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_handler_captures_stage_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_handler_captures_stage_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_handler_captures_stage_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_handler_signature_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_handler_signature_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_handler_signature_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_handler_signature_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_same_result_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_same_result_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_same_result_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_same_result_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_stage_exact_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_stage_exact_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_stage_exact_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "delegated_stage_exact_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "direct_reuse_tuple_identity_restored": {
+      "detail": "",
+      "passed": true
+    },
+    "executor_name_exact": {
+      "detail": "",
+      "passed": true
+    },
+    "expected_builder_map_exact": {
+      "detail": "",
+      "passed": true
+    },
+    "frozen_adapter_executor_contract_exact": {
+      "detail": "(*, result, stage: 'str', handler: 'Callable[[Any], None]')",
+      "passed": true
+    },
+    "frozen_production_resolver_contract_exact": {
+      "detail": "(stage, annotated_output_path=None)",
+      "passed": true
+    },
+    "generic_builder_stage_parameter_exact": {
+      "detail": "",
+      "passed": true
+    },
+    "local_builder_map_identity_restored": {
+      "detail": "",
+      "passed": true
+    },
+    "orchestration_stage_12_exact": {
+      "detail": "{'name': 'relative_team_assignment', 'action': 'REUSE_AFTER_RESOLVED', 'requires_resolved_shooter': True, 'may_execute_before_shooter_resolution': False}",
+      "passed": true
+    },
+    "orchestration_stage_14_exact": {
+      "detail": "{'name': 'shot_geometry', 'action': 'REUSE_AFTER_RESOLVED', 'requires_resolved_shooter': True, 'may_execute_before_shooter_resolution': False}",
+      "passed": true
+    },
+    "orchestration_stage_15_exact": {
+      "detail": "{'name': 'defender_context', 'action': 'REUSE_AFTER_RESOLVED', 'requires_resolved_shooter': True, 'may_execute_before_shooter_resolution': False}",
+      "passed": true
+    },
+    "orchestration_stage_16_exact": {
+      "detail": "{'name': 'enhanced_xg', 'action': 'REUSE_AFTER_RESOLVED', 'requires_resolved_shooter': True, 'may_execute_before_shooter_resolution': False}",
+      "passed": true
+    },
+    "post_resolution_tuple_identity_restored": {
+      "detail": "",
+      "passed": true
+    },
+    "private_handler_resolver_stage_parameter_exact": {
+      "detail": "",
+      "passed": true
+    },
+    "production_resolver_name_exact": {
+      "detail": "",
+      "passed": true
+    },
+    "public_handler_callable_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "public_handler_callable_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "public_handler_callable_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "public_handler_callable_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "public_handler_returns_none_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "public_handler_returns_none_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "public_handler_returns_none_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "public_handler_returns_none_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "public_handler_signature_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "public_handler_signature_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "public_handler_signature_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "public_handler_signature_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "real_executor_identity_restored": {
+      "detail": "",
+      "passed": true
+    },
+    "real_production_resolver_identity_restored": {
+      "detail": "",
+      "passed": true
+    },
+    "reject_adapter_builder_identity_tamper": {
+      "detail": "ResolvedDownstreamReuseContractError: Frozen-v1 adapter builder identity disagrees with the resolved-downstream production contract.",
+      "passed": true
+    },
+    "reject_binding_without_resolved_shooter": {
+      "detail": "ResolvedDownstreamReuseContractError: Resolved-downstream stage lost its resolved-shooter requirement.",
+      "passed": true
+    },
+    "reject_direct_reuse_classification_tamper": {
+      "detail": "ResolvedDownstreamReuseContractError: Stage is not classified as direct frozen-v1 reuse.",
+      "passed": true
+    },
+    "reject_local_builder_identity_tamper": {
+      "detail": "ResolvedDownstreamReuseContractError: Frozen-v1 adapter builder identity disagrees with the resolved-downstream production contract.",
+      "passed": true
+    },
+    "reject_missing_frozen_adapter_executor": {
+      "detail": "ResolvedDownstreamReuseContractError: Frozen-v1 adapter executor is unavailable.",
+      "passed": true
+    },
+    "reject_missing_production_resolver": {
+      "detail": "ResolvedDownstreamReuseContractError: Frozen production stage resolver is unavailable.",
+      "passed": true
+    },
+    "reject_missing_runtime_builder_map": {
+      "detail": "ResolvedDownstreamReuseContractError: Frozen production builder map is unavailable.",
+      "passed": true
+    },
+    "reject_noncallable_frozen_adapter_executor": {
+      "detail": "ResolvedDownstreamReuseContractError: Frozen-v1 adapter executor is unavailable.",
+      "passed": true
+    },
+    "reject_noncallable_production_resolver": {
+      "detail": "ResolvedDownstreamReuseContractError: Frozen production stage resolver is unavailable.",
+      "passed": true
+    },
+    "reject_noncallable_resolver_output": {
+      "detail": "ResolvedDownstreamReuseContractError: Frozen production stage resolver did not return a callable handler.",
+      "passed": true
+    },
+    "reject_nondict_runtime_builder_map": {
+      "detail": "ResolvedDownstreamReuseContractError: Frozen production builder map is unavailable.",
+      "passed": true
+    },
+    "reject_nonstring_stage_NoneType": {
+      "detail": "ResolvedDownstreamReuseContractError: Resolved downstream stage must be a string.",
+      "passed": true
+    },
+    "reject_nonstring_stage_bool": {
+      "detail": "ResolvedDownstreamReuseContractError: Resolved downstream stage must be a string.",
+      "passed": true
+    },
+    "reject_nonstring_stage_dict": {
+      "detail": "ResolvedDownstreamReuseContractError: Resolved downstream stage must be a string.",
+      "passed": true
+    },
+    "reject_nonstring_stage_float": {
+      "detail": "ResolvedDownstreamReuseContractError: Resolved downstream stage must be a string.",
+      "passed": true
+    },
+    "reject_nonstring_stage_int": {
+      "detail": "ResolvedDownstreamReuseContractError: Resolved downstream stage must be a string.",
+      "passed": true
+    },
+    "reject_nonstring_stage_list": {
+      "detail": "ResolvedDownstreamReuseContractError: Resolved downstream stage must be a string.",
+      "passed": true
+    },
+    "reject_nonstring_stage_tuple": {
+      "detail": "ResolvedDownstreamReuseContractError: Resolved downstream stage must be a string.",
+      "passed": true
+    },
+    "reject_post_resolution_classification_tamper": {
+      "detail": "ResolvedDownstreamReuseContractError: Stage is not classified as post-resolution reuse by the frozen-v1 adapter.",
+      "passed": true
+    },
+    "reject_runtime_builder_identity_tamper": {
+      "detail": "ResolvedDownstreamReuseContractError: Frozen production builder identity changed for stage 'defender_context': expected='build_defender_context_handler', observed='tampered_builder'",
+      "passed": true
+    },
+    "reject_unsupported_stage_annotation": {
+      "detail": "ResolvedDownstreamReuseContractError: Stage is not a supported resolved-downstream frozen-v1 reuse stage: 'annotation'",
+      "passed": true
+    },
+    "reject_unsupported_stage_does_not_exist": {
+      "detail": "ResolvedDownstreamReuseContractError: Stage is not a supported resolved-downstream frozen-v1 reuse stage: 'does_not_exist'",
+      "passed": true
+    },
+    "reject_unsupported_stage_input_validation": {
+      "detail": "ResolvedDownstreamReuseContractError: Stage is not a supported resolved-downstream frozen-v1 reuse stage: 'input_validation'",
+      "passed": true
+    },
+    "reject_unsupported_stage_output_validation": {
+      "detail": "ResolvedDownstreamReuseContractError: Stage is not a supported resolved-downstream frozen-v1 reuse stage: 'output_validation'",
+      "passed": true
+    },
+    "reject_unsupported_stage_shooter_assignment": {
+      "detail": "ResolvedDownstreamReuseContractError: Stage is not a supported resolved-downstream frozen-v1 reuse stage: 'shooter_assignment'",
+      "passed": true
+    },
+    "reject_unsupported_stage_target_goal_inference": {
+      "detail": "ResolvedDownstreamReuseContractError: Stage is not a supported resolved-downstream frozen-v1 reuse stage: 'target_goal_inference'",
+      "passed": true
+    },
+    "runtime_builder_map_identity_restored": {
+      "detail": "",
+      "passed": true
+    },
+    "runtime_target_builder_map_exact": {
+      "detail": "",
+      "passed": true
+    },
+    "stage_tuple_exact": {
+      "detail": "",
+      "passed": true
+    },
+    "static_forbidden_tokens_absent": {
+      "detail": "[]",
+      "passed": true
+    },
+    "static_import_contract_exact": {
+      "detail": "{'absolute': ['__future__', 'soccer_ml.clip_pipeline', 'typing'], 'relative': [(1, None, ('v1_adapter',))]}",
+      "passed": true
+    },
+    "synthetic_no_invoke_call_count_exact": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_no_invoke_stage_order_exact": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_resolution_count_exact": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_terminal_call_count_exact": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_terminal_returns_none_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_terminal_returns_none_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_terminal_returns_none_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_terminal_returns_none_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_terminal_same_result_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_terminal_same_result_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_terminal_same_result_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_terminal_same_result_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_terminal_stage_exact_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_terminal_stage_exact_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_terminal_stage_exact_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "synthetic_terminal_stage_exact_shot_geometry": {
+      "detail": "",
+      "passed": true
+    },
+    "v1_stage_binding_identity_restored": {
+      "detail": "",
+      "passed": true
+    },
+    "wrapper_preserves_pipeline_status_defender_context": {
+      "detail": "",
+      "passed": true
+    },
+    "wrapper_preserves_pipeline_status_enhanced_xg": {
+      "detail": "",
+      "passed": true
+    },
+    "wrapper_preserves_pipeline_status_relative_team_assignment": {
+      "detail": "",
+      "passed": true
+    },
+    "wrapper_preserves_pipeline_status_shot_geometry": {
+      "detail": "",
+      "passed": true
+    }
+  },
+  "upstream": {
+    "cell30_audit_path": "C:\\Users\\hecto\\OneDrive\\Desktop\\soccer-chance-analysis\\outputs\\notebook50_local\\v2_implementation\\notebook50_cell30_resolved_downstream_reuse_boundary.json",
+    "cell30_audit_sha256": "37a2dc7dd527cdd6b66b36f529426cf6fbd6f28a70224e3cd09b8270ac1d702c",
+    "v1_adapter_sha256": "37b9a0dee6cd38642771eaf8f073bfa08ad4ec41bff3207bbf2e1ff960610ccc"
+  }
+}
