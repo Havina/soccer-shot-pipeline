@@ -1,14 +1,14 @@
-# Soccer ML — shot analysis pipeline
+# Soccer shot analysis pipeline
 
 Frozen 18-stage soccer clip pipeline: detect and track players and the ball, recover camera-to-pitch geometry, assign a shooter (with a human confirm when the top two tracks are ambiguous), then report distance, angle, nearby defenders, and a geometry-only expected-goals (xG) figure.
 
-This is a **local RTX 2060 recertification**, not a claim of the original NVIDIA L40 server certification. Hashes of the frozen V1/V2 sources are checked at app startup.
+Frozen V1/V2 source hashes are checked when the app starts.
 
 ## What is in this repo
 
 - `src/soccer_ml/` — frozen V1 clip pipeline and Semantic-v2 package
-- `src/soccer_ml/local_geometry_v2.py` — local Geometry-v2 adapter (DI into the public API; does not spoof the L40 fingerprint)
-- `local_geometry_v2/*.py` — RTX 2060 worker (the PnLCalib weight tree is not committed)
+- `src/soccer_ml/local_geometry_v2.py` — local Geometry-v2 adapter (injected at the public API boundary)
+- `local_geometry_v2/*.py` — local geometry worker scripts (the PnLCalib weight tree is not committed)
 - `app/` — FastAPI backend and static UI
 - `outputs/notebook50_local/freeze/` — Cell 41-LOCAL app-readiness freeze (JSON/txt only)
 - `outputs/evaluation_corpus/catalog.json` — notes on clips that pass or fail
